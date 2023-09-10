@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'user',
+    'widget_tweaks',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -137,4 +138,19 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 LOGIN_REDIRECT_URL="show_poops"
+ACCOUNT_SIGNUP_REDIRECT_URL="index"
+ACCOUNT_LOGOUT_ON_GET="True"
+ACCOUNT_AUTHENTICATION_METHOD="email"
+ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_USERNAME_REQUIRED=False
+ACCOUNT_SESSION_REMEMBER=True
+ACCOUNT_SIGNUP_FORM_CLASS="user.forms.SignupForm"
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE=True
+SESSION_COOKIE_AGE=3600
+ACCOUNT_EMAIL_VARIFICATION="optional"
+ACCOUNT_CONFIRM_EMAIL_ON_GET=True
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL="account_email_confirmation_done"
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL="account_email_confirmation_done"
+ACCOUNT_EMAIL_SUBJECT_PREFIX=""
+PASSWORD_RESET_TIMEOUT=3600
 EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
