@@ -1,0 +1,56 @@
+{% extends 'user_base/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+<!-- login page -->
+{% block content %}
+    <section class="login-page">
+        <!-- login page nav -->
+        <nav class="login-page-nav">
+            <ul>
+                <li class="brand"><a href="#"><i class="fas fa-dove"></i></a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Language: English</a></li>
+            </ul>
+        </nav>
+        <!-- end of login page nav -->
+        <!-- login -->
+        <div class="login">
+            <div class="login-content">
+                <h2>Sign up to Poops!</h2>
+                <form class="login-form" method="post">
+                    {% csrf_token %}
+                    {{ form.login|add_class:"login-user-info"|add_error_class:"error"|attr:"placeholder:이메일" }}
+                    {% for error in form.login.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                    {{ form.password|add_class:"login-password"|add_error_class:"error"|attr:"placeholder:비밀번호" }}
+                    {% for error in form.password.errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="error-message">{{ error }}</div>
+                    {% endfor %}
+                    <div>
+                        <button type="submit" class="login-form-btn">Log In</button>
+                        <input type="checkbox" class="login-form-checkbox" id="check">
+                        <label for="check">Remember me</label>
+                        <a href="{% url 'account_reset_password' %}">Forgot password</a>
+                    </div>
+                </form>
+            </div>
+            <footer class="login-footer">
+                <p>New to Twirrer? <a href="{% url 'account_signup' %}">Sign up now</a></p>
+            </footer>
+        </div>
+        <!-- end of login -->
+        <!-- login modal -->
+        <div class="login-modal">
+            <i class="fas fa-times"></i>
+            <p>The username and password you entered did not match our records. Please, double check and try again</p>
+        </div>
+
+        <!-- end of login modal -->
+    </section>
+    <!-- end of login page -->
+{% endblock content %}
