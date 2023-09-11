@@ -8,5 +8,3 @@ def index(request):
 
 def feed_view(request):
     return render(request,'user/feed.html')
-
-
