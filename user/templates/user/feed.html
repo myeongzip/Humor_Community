@@ -242,6 +242,7 @@
 
 
         {% if user.is_authenticated %}
+
             <button type="button" class="post-btn">
                 <i class="fas fa-feather-alt"> Post</i>
                 <i class="fas fa-feather-alt"><a href="{% url 'account_logout' %}">Log out</a></i>
@@ -259,8 +260,9 @@
                     <div class="modal-img">
                         <img src="{% static 'user/images/DSC_0176.JPG' %}" alt="">
                     </div>
-                    <input type="text" placeholder="What's happenning?"
-                           class="modal-input dark-mode-2 light-text border">
+                    <form action="/tweet/create/" method="post">
+                        <input type="text" placeholder="내용을 입력해주세요" name="content"
+                            class="modal-input dark-mode-2 light-text border">
                     <i class="far fa-smile"></i>
                 </div>
                 <div class="modal-footer">

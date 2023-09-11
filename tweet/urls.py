@@ -4,10 +4,11 @@ from django.urls import path,include
 from tweet import views
 
 urlpatterns = [
-    path('tweet/create', views.todo_create),
-    path('tweet/read', views.todo_create),
-    path('tweet/update', views.todo_create),
-    path('tweet/delete', views.todo_create),
+    path('feed', views.index),
+    path('feed/create', views.todo_create),
+    # path('tweet/<int:tweet_id>/', views.todo_read),
+    # path('<int:twwet_id>/update/', views.todo_update),
+    # path('<int:tweet_id>/delete/', views.todo_delete),
 
     
 ]
