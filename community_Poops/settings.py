@@ -137,7 +137,7 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-LOGIN_REDIRECT_URL="show_poops"
+LOGIN_REDIRECT_URL="feed"
 ACCOUNT_SIGNUP_REDIRECT_URL="index"
 ACCOUNT_LOGOUT_ON_GET="True"
 ACCOUNT_AUTHENTICATION_METHOD="email"
