@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'tweet',
 ]
 SITE_ID=1
 MIDDLEWARE = [
@@ -125,6 +126,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_ROOT =  BASE_DIR, 'media'
+MEDIA_URL = '/media/'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -137,7 +142,8 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-LOGIN_REDIRECT_URL="show_poops"
+
+LOGIN_REDIRECT_URL="feed"
 ACCOUNT_SIGNUP_REDIRECT_URL="index"
 ACCOUNT_LOGOUT_ON_GET="True"
 ACCOUNT_AUTHENTICATION_METHOD="email"
@@ -154,3 +160,6 @@ ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL="account_email_confirmation_do
 ACCOUNT_EMAIL_SUBJECT_PREFIX=""
 PASSWORD_RESET_TIMEOUT=3600
 EMAIL_BACKEND="django.core.mail.backends.console.EmailBackend"
+
+
+
